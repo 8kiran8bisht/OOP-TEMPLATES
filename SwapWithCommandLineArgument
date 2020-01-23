@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+template<typename T>
+void sawp (T& a, T& b) {
+	T c;
+	c = a;
+	a = b;
+	b = c;
+
+}
+
+int main(int argc, char* argv[]) {
+	
+	if (argc > 4)
+	{ 
+		double a = atof(argv[1]);
+		double b = atof(argv[2]);
+		float aF = atof(argv[3]);
+		float bF= atof(argv[4]);
+		cout << "Integer Swap :" << endl;
+		cout << "Before swap a is " << a << " and b is  " << b << endl;
+		swap(a, b);
+		cout << "After Swap a is " << a << " and b is  " << b << endl << endl;
+
+		cout << "Float Swap :" << endl;
+		cout << "Before swap aF is " << aF << " and bF is  " << bF << endl;
+		swap(aF, bF);
+		cout << "After Swap aF is " << aF << " and bF is  " << bF << endl << endl;
+	}
+	
+
+	return 0;
+}
