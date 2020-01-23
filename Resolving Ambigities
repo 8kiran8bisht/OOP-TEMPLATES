@@ -1,0 +1,37 @@
+/*If the arguments in a function call are ambiguous in type,
+the compiler requires an explicit specification of the type for which to generate the definition. 
+We specify the type explicitly before the opening parentheis of the function call:*/
+
+#include <iostream>
+#include <cstring>
+using namespace std;
+template<typename T>
+T maximum (T a, T b) {
+	return a >b ?a:b;
+}
+template<>
+char* maximum<char*>(char* a, char* b) {
+	return strcmp(a, b) > 0 ? a : b;
+}
+
+
+int main(int argc, char* argv[]) {
+	
+	if (argc > 4)
+	{ 
+		double a = atof(argv[1]);
+		double b = atof(argv[2]);
+		int c = atof(argv[3]);
+		int d = atof(argv[4]);
+
+		
+
+		cout << "Greater value is  betwwen "<<a<<" and "<<b<<" is "<< maximum<double>(a, b) << endl;
+
+		cout << "Greater value is  betwwen " << c << " and " << d << " is " << maximum<int>(c, d) << endl;
+		
+	}
+	
+
+	return 0;
+}
