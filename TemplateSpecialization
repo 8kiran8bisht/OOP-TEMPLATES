@@ -1,0 +1,37 @@
+/*
+A template specialization defines an exception to a template definition. 
+The empty parameter list identifies a specialization.  A specialization does not use template parameters, 
+but declares specific types explicitly. 
+*/
+
+#include <iostream>
+#include <cstring>
+using namespace std;
+template<typename T>
+T maximum (T a, T b) {
+	return a >b ?a:b;
+}
+template<>
+char* maximum<char*>(char* a, char* b) {
+	return strcmp(a, b) > 0 ? a : b;
+}
+
+
+int main(int argc, char* argv[]) {
+	
+	if (argc > 4)
+	{ 
+		double a = atof(argv[1]);
+		double b = atof(argv[2]);
+		const char* aS = argv[3];
+		const char *bS= argv[4];
+
+		cout << "Greater value is  betwwen "<<a<<" and "<<b<<" is "<< maximum(a, b) << endl;
+
+		cout << "Greater value is  betwwen " << aS << " and " << bS << " is " << maximum(aS, bS) << endl;
+		
+	}
+	
+
+	return 0;
+}
